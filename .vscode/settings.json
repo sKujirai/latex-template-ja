@@ -1,0 +1,70 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "command": "lualatex",
+            "args": [
+                "--cmdx",
+                "--fmt=lualatex.fmt",
+                "%DOCFILE%"
+            ],
+            "name": "lualatex"
+        },
+        {
+            "command": "upbibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "name": "upbibtex"
+        },
+        {
+            "command": "mendex",
+            "args": [
+                "-U",
+                "%DOCFILE%"
+            ],
+            "name": "mendex"
+        },
+        {
+            "command": "uplatex",
+            "args": [
+                "-kanji=utf8",
+                "-no-guess-input-enc",
+                "%DOCFILE%"
+            ],
+            "name": "uplatex"
+        },
+        {
+            "command": "dvipdfmx",
+            "args": [
+                "-f",
+                "msembed.map",
+                "%DOCFILE%.dvi"
+            ],
+            "name": "dvipdfmx"
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "toolchain",
+            "tools": [
+                "lualatex",
+                "upbibtex",
+                "lualatex",
+                "mendex",
+                "lualatex"
+            ],
+            "_tools": [
+                "uplatex",
+                "upbibtex",
+                "uplatex",
+                "mendex",
+                "uplatex",
+                "dvipdfmx"
+            ],
+            "__tools": [
+                "lualatex"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab"
+}

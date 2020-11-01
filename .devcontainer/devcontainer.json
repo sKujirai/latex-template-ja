@@ -1,0 +1,91 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/cpp
+{
+	"name": "texlive-ja-thesis",
+	"dockerComposeFile": [
+        "../docker-compose.yml"
+	],
+	"service": "tex",
+	"shutdownAction": "stopCompose",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/sh",
+		"latex-workshop.latex.tools": [
+			{
+				"command": "lualatex",
+				"args": [
+					"--cmdx",
+					"--fmt=lualatex.fmt",
+					"%DOCFILE%"
+				],
+				"name": "lualatex"
+			},
+			{
+				"command": "upbibtex",
+				"args": [
+					"%DOCFILE%"
+				],
+				"name": "upbibtex"
+			},
+			{
+				"command": "mendex",
+				"args": [
+					"-U",
+					"%DOCFILE%"
+				],
+				"name": "mendex"
+			},
+			{
+				"command": "uplatex",
+				"args": [
+					"-kanji=utf8",
+					"-no-guess-input-enc",
+					"%DOCFILE%"
+				],
+				"name": "uplatex"
+			},
+			{
+				"command": "dvipdfmx",
+				"args": [
+					"%DOCFILE%.dvi"
+				],
+				"name": "dvipdfmx"
+			}
+		],
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "toolchain",
+				"tools": [
+					"lualatex",
+					"upbibtex",
+					"lualatex",
+					"lualatex"
+				],
+				"__tools": [
+					"uplatex",
+					"upbibtex",
+					"uplatex",
+					"uplatex",
+					"dvipdfmx"
+				],
+				"_tools": [
+					"lualatex"
+				]
+			}
+		],
+		"latex-workshop.view.pdf.viewer": "tab",
+		"latex-workshop.latex.autoBuild.run": "onFileChange",
+		"latex-workshop.docker.enabled": true
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"james-yu.latex-workshop",
+		"tomoki1207.pdf"
+	],
+
+	// Workspace
+	"workspaceFolder": "/workdir"
+
+}
