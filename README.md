@@ -15,6 +15,7 @@
 ### ローカル環境構築
 - [TeX Live 2020](http://mirror.aarnet.edu.au/pub/CTAN/systems/texlive/Images/)を導入
 - VS Codeの拡張機能[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)を導入
+- `$ kanji-config-updmap-sys --ja ms`として，埋め込む和文フォントを設定
 
 ### Dockerを使用する場合
 - VS CodeのRemote Development機能を使用

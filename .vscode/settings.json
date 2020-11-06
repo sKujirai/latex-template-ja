@@ -37,7 +37,7 @@
             "command": "dvipdfmx",
             "args": [
                 "-f",
-                "msembed.map",
+                "otf-ms.map",
                 "%DOCFILE%.dvi"
             ],
             "name": "dvipdfmx"
