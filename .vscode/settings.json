@@ -3,8 +3,7 @@
         {
             "command": "lualatex",
             "args": [
-                "--cmdx",
-                "--fmt=lualatex.fmt",
+                "-synctex=1",
                 "%DOCFILE%"
             ],
             "name": "lualatex"
@@ -29,6 +28,7 @@
             "args": [
                 "-kanji=utf8",
                 "-no-guess-input-enc",
+                "-synctex=1",
                 "%DOCFILE%"
             ],
             "name": "uplatex"
@@ -50,14 +50,14 @@
                 "lualatex",
                 "upbibtex",
                 "lualatex",
-                "mendex",
+                // "mendex",
                 "lualatex"
             ],
             "_tools": [
                 "uplatex",
                 "upbibtex",
                 "uplatex",
-                "mendex",
+                // "mendex",
                 "uplatex",
                 "dvipdfmx"
             ],

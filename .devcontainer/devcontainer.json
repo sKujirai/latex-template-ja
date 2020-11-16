@@ -15,8 +15,7 @@
 			{
 				"command": "lualatex",
 				"args": [
-					"--cmdx",
-					"--fmt=lualatex.fmt",
+					"-synctex=1",
 					"%DOCFILE%"
 				],
 				"name": "lualatex"
@@ -41,6 +40,7 @@
 				"args": [
 					"-kanji=utf8",
 					"-no-guess-input-enc",
+					"-synctex=1",
 					"%DOCFILE%"
 				],
 				"name": "uplatex"
