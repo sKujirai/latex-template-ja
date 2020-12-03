@@ -1,0 +1,18 @@
+stages:
+  - build
+
+TexCompile:
+  stage: build
+  tags:
+    - Windows
+  script:
+    - set TexCompiler="lualatex"
+    - set SRC=thesis
+    - '%TexCompiler% %SRC%.tex'
+    - upbibtex %SRC%.aux
+    - '%TexCompiler% %SRC%.tex'
+    - '%TexCompiler% %SRC%.tex'
+  artifacts:
+    paths:
+      - ./thesis.pdf
+    expire_in: 1 day

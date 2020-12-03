@@ -19,4 +19,5 @@
 
 ### Dockerを使用する場合
 - VS CodeのRemote Development機能を使用
-- `wordstyle.tex`のみ動作確認済み．`thesis.tex`をコンパイルする際は，追加のパッケージのインストールが必要
+- 拡張機能[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)が導入されているので，`Ctrl`+`Alt`+`B`でコンパイルできる
+- `thesis.tex`をコンパイルする際は，Windows関連のフォント設定をコメントアウトする必要あり(`wordstyle.tex`はそのままで動作する)

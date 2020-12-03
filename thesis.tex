@@ -8,27 +8,17 @@
   % \newcommand{\thesistype}{bachelor}  % 卒業論文
   \usepackage{ifluatex}
   \ifluatex
-    \usepackage{graphicx}
+    \usepackage{graphicx, xcolor}
     \usepackage{luatexja-otf}
+    \usepackage{luatexja-fontspec}
     \usepackage[ms]{luatexja-preset}
-    \usepackage[intlimits]{amsmath}
-    \usepackage{amssymb}
-    \usepackage{unicode-math}
     \setmainfont[Ligatures=TeX]{Times New Roman}
-    \setmonofont[Ligatures=TeX]{Inconsolatazi4}
-    \unimathsetup{math-style=ISO,bold-style=ISO}
-    %\setmathfont{xits-math.otf}
-    \usepackage{textgreek}  % 立字alpha
-    \usepackage{upgreek}  % 立字mu
   \else
-    \usepackage[dvipdfmx]{graphicx,color}
-    \usepackage{amsmath}  % \allowdisplaybreaks, align, flagin
-    %\usepackage{amssymb}  % 特殊記号用 (txfontsを使う場合は不要)
-    \usepackage{inconsolata}
-    \usepackage{txfonts}  % TXフォント (Times Roman系フォント)
+    \usepackage[dvipdfmx]{graphicx, xcolor}
   \fi
+  \usepackage[intlimits]{amsmath}
+  \usepackage{newtxtext, newtxmath}
   \usepackage{mathrsfs}  % \mathscr用
-  \usepackage{siunitx}  % SI単位系
   \usepackage{booktabs}  % 綺麗な表組み
   \usepackage{multirow}  % 複数行や複数列の表組み
   \usepackage{type1cm}  % フォント拡大縮小
@@ -50,26 +40,9 @@
   \usepackage{overcite}
   \renewcommand\citeform[1]{(#1)}
 
-  % Use \mathrm \boldsymbol
-  \ifluatex
-    \def\boldsymbol#1{{\symbf{#1}}}
-    % \def\mathrm#1{{\symup{#1}}}
-    % \newcommand{\alphaup}{\symup{\alpha}}
-    % \newcommand{\muup}{\symup{\mu}}
-    \newcommand{\alphaup}{\mbox{\textalpha}}
-    \newcommand{\muup}{\upmu}
-    \newcommand{\thetaup}{\mbox{\straighttheta}}
-    \newcommand{\vol}{\mbox{\usefont{T1}{ptm}{m}{it}{v}}}
-  \else
-    \def\boldsymbol#1{%
-      \def\moji{#1}% 
-      \def\temp{v}% 
-      \ifx\moji\temp%vだけフォント変更(使用時は個別に{}で囲む必要あり)
-        {\mbox{\usefont{T1}{cmr}{bx}{it} {#1}}}%
-      \else%
-        {\mbox{\boldmath ${#1}$}}%
-      \fi}
-  \fi
+  % 速度vに関するフォント定義(体積vと区別)
+  % \newcommand{\sv}{\mbox{\usefont{T1}{cmr}{m}{it}{v}}}  % Scalar v
+  % \newcommand{\vv}{\mbox{\usefont{T1}{cmr}{bx}{it}{v}}}  % Vector v
 
   % 栞
   \ifluatex

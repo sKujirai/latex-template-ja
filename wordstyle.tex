@@ -2,18 +2,18 @@
 
 \usepackage{ifluatex}
 \ifluatex
-    \usepackage{graphicx}
+    \usepackage{graphicx, xcolor}
     \usepackage{luatexja-otf}
+    % \usepackage{luatexja-fontspec}
+    % \usepackage[ms]{luatexja-preset}
+    % \setmainfont[Ligatures=TeX]{Times New Roman}
 \else
-    \usepackage[dvipdfmx]{graphicx, color}
+    \usepackage[dvipdfmx]{graphicx, xcolor}
 \fi
-% \usepackage[ms]{luatexja-preset}
 \usepackage[intlimits]{amsmath}
-\usepackage{amssymb}
-% \usepackage{newtxtext, newtxmath}
+\usepackage{newtxtext, newtxmath}
 
 \usepackage{mathrsfs}  % \mathscr用
-% \usepackage{siunitx}  % SI単位系
 \usepackage{booktabs}  % 綺麗な表組み
 \usepackage{multirow}  % 複数行や複数列に跨る表組み
 \usepackage{type1cm}  % フォント拡大縮小
@@ -39,7 +39,7 @@
 
 % Title
 \begin{center}
-{\scalefont{2}計画書}
+{\scalefont{2} \textgt{計画書}}
 \end{center}
 \vspace{0.3cm}
 \begin{flushright}
@@ -53,7 +53,7 @@
 〇〇〇〇〇〇〇〇
 
 \section{研究背景}
-Burgersベクトルは，現配置において式\eqref{eq_bergers_vector}で表される~\cite{kondo1955non-riemannian}．
+Burgersベクトルは，現配置において式~\eqref{eq_bergers_vector}で表される~\cite{kondo1955non-riemannian}．
 %
 \begin{equation}
     \label{eq_bergers_vector}
@@ -62,7 +62,7 @@ Burgersベクトルは，現配置において式\eqref{eq_bergers_vector}で表
     \dotfill
 \end{equation}
 %
-これを図示すると，図\ref{fig_paper_irasutoya}のようになる．
+これを図示すると，図~\ref{fig_paper_irasutoya}のようになる．
 %
 \begin{figure}[bp]
     \centering
