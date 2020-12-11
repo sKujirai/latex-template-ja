@@ -6,12 +6,14 @@ TexCompile:
   tags:
     - Windows
   script:
-    - set TexCompiler="lualatex"
-    - set SRC=thesis
-    - '%TexCompiler% %SRC%.tex'
-    - upbibtex %SRC%.aux
-    - '%TexCompiler% %SRC%.tex'
-    - '%TexCompiler% %SRC%.tex'
+    - $TexCompiler = "lualatex"
+    - $SRC = "thesis"
+    - $TexCompile = "$TexCompiler ${SRC}.tex"
+    - $BibCompile = "upbibtex ${SRC}.aux"
+    - Invoke-Expression $TexCompile
+    - Invoke-Expression $BibCompile
+    - Invoke-Expression $TexCompile
+    - Invoke-Expression $TexCompile
   artifacts:
     paths:
       - ./thesis.pdf
